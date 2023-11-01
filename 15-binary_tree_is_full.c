@@ -12,39 +12,19 @@
 
 int binary_tree_is_full(const binary_tree_t *tree)
 {
+	int i = 0, j = 0;
+
 	if (tree == NULL)
-		return (0);
-
-	return (is_full(tree));
-}
-
-/**
- * is_full - checks if a given binary tree is full by checking its child nodes
- *
- * @tree: pointer to the root node of the tree to check
- *
- * Return: return 1 if full
- *	   return 0 otherwise
-*/
-
-int is_full(const binary_tree_t *tree)
-{
-	int i = 1;
-
-	if (tree->left == NULL && tree->right != NULL)
-		return (0);
-
-	if (tree->left != NULL && tree->right == NULL)
 		return (0);
 
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
 
-	if (i == 0)
-		return (0);
+	if (tree->left != NULL)
+		i = binary_tree_is_full(tree->left);
 
-	i = is_full(tree->left);
-	i = is_full(tree->right);
+	if (tree->right != NULL)
+		j = binary_tree_is_full(tree->right);
 
-	return (i);
+	return (i && j);
 }
