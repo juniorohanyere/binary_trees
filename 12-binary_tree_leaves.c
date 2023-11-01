@@ -24,6 +24,14 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
 	return (leaves);
 }
 
+/**
+ * get_leaves - gets the number of leave nodes in a binary tree
+ *
+ * @tree: pointer to the root node of the tree to get the number of leaves from
+ *
+ * Return: return the number of leave nodes found
+*/
+
 size_t get_leaves(const binary_tree_t *tree)
 {
 	size_t left, right;
