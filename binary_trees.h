@@ -75,4 +75,7 @@ binary_tree_t *tree_insert_right(binary_tree_t *parent, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 
+bst_t *bst_remove(bst_t *root, int value);
+bst_t *bst_get_min(bst_t *root);
+
 #endif	/* BINARY_TREES_H */
