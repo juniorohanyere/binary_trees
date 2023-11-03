@@ -18,6 +18,7 @@ struct binary_tree_s
 };
 
 typedef struct binary_tree_s binary_tree_t;
+typedef struct binary_tree_s bst_t;
 
 void binary_tree_print(const binary_tree_t *tree);
 
@@ -67,5 +68,9 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
 int is_bst(const binary_tree_t *tree, int min, int max);
+
+bst_t *bst_insert(bst_t **tree, int value);
+binary_tree_t *tree_insert_left(binary_tree_t *parent, int value);
+binary_tree_t *tree_insert_right(binary_tree_t *parent, int value);
 
 #endif	/* BINARY_TREES_H */
