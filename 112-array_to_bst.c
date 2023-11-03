@@ -17,23 +17,25 @@
 
 bst_t *array_to_bst(int *array, size_t size)
 {
-	bst_t **root;
+	bst_t *root = NULL;
+	size_t i, j;
 
-	if (array == NULL || size == 0)
+	if (array == NULL)
 		return (NULL);
 
-	root = malloc(sizeof(bst_t *));
-	if (root == NULL)
-		return (NULL);
-
-	for (size_t i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
-		if (root == NULL || bst_insert(root, array[i]) == NULL)
+		for (j = 0; j < i; j++)
 		{
-			free(root);
-			return (NULL);
+			if (array[j] == array[i])
+				break;
+		}
+		if (j == i)
+		{
+			if (!bst_insert(&root, array[i]))
+				return (NULL);
 		}
 	}
 
-	return (*root);
+	return (root);
 }
